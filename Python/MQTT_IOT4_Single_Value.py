@@ -1,6 +1,4 @@
 import time, sys, platform
-import json
-import base64
 import time
 
 import paho.mqtt.client as mqtt
