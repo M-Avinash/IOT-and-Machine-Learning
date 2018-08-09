@@ -12,7 +12,7 @@ DHT dht(dht_dpin, DHTTYPE);
 // ========== start configuration ==========
 // WiFi configuration
 const char* ssid = "Manoli";
-const char* password = "acmanoli19521";
+const char* password = "password";
   
 // SAP HCP specific configuration
 const char* host = "iotmmsp349341trial.hanatrial.ondemand.com";
