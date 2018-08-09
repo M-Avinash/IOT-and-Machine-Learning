@@ -1,7 +1,7 @@
-#Big thanks to Fabian Lehman for this one, Once the downstream command handling was out in place by him, the rest is easy as pie to upload data onto the 4.0 cockpit
+#Big Big thanks to Fabian Lehmann for this one, my first attempt at sending my computer data onto the Leonardo IOT 4.0 Cockpit.
 
-import requests # http://docs.python-requests.org/en/master/
-import psutil   # https://pypi.python.org/pypi/psutil
+import requests 
+import psutil   
 import time, sys, platform
 import json
 import base64
