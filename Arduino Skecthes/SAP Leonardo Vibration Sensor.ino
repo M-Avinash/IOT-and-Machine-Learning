@@ -43,7 +43,7 @@ void loop() {
     Serial.println(sensorValue); 
     delay(800);
  
-  String url = "https://iotmmsp349341trial.hanatrial.ondemand.com/com.sap.iotservices.mms/v1/api/http/data/" + device_id;
+  String url = "https://iotmmsp****ial.hanatrial.ondemand.com/com.sap.iotservices.mms/v1/api/http/data/" + device_id;
   String post_payload = "{\"mode\":\"async\", \"messageType\":\"" + message_type_id + "\", \"messages\":[{\"sensorValue\":"+sensorValue+"}]}";
 
   // Use WiFiClientSecure class to create TLS connection
