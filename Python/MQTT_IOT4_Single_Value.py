@@ -25,7 +25,7 @@ def on_disconnect(client, userdata, rc):
     
 # ========================================================================
 
-config_broker='capgemini-service.eu10.cp.iot.sap'
+config_broker='broker-service.eu10.cp.iot.sap'
 
 config_credentials_key='D:/Users/avmanoli/Desktop/Device3/credentials.key'
 config_credentials_crt='D:/Users/avmanoli/Desktop/Device3/credentials.crt'
@@ -60,8 +60,8 @@ client.loop_start()
 
 client.subscribe('commands/ca8d0b5736d2e077',0)
 time.sleep(5)
-##payload = "{ 'capabilityAlternateId': '33b7d9e1c351fa2ec9', 'sensorAlternateId': '33ee844993ecf6350b', 'measures': 22 }"
-##payload = { 'capabilityAlternateId':'33b7d9e1c351fa2ec9', 'sensorAlternateId':'33ee844993ecf6350b', 'measures':22 }
+##payload = "{ 'capabilityAlternateId': 'input the alternate aid', 'sensorAlternateId': 'input the alternate aid', 'measures': 22 }"
+##payload = { 'capabilityAlternateId':'input the alternate aid', 'sensorAlternateId':'input the alternate aid', 'measures':22 }
 payload = "{ \"capabilityAlternateId\": \""+config_alternate_id_capability+"\",\"sensorAlternateId\": \""+config_alternate_id_sensor+"\", \"measures\":"+s_pctCPU+"}"
 print(payload)
 client.publish(my_publish_topic, str(payload), 0)
