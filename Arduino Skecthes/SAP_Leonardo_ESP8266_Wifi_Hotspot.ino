@@ -14,10 +14,10 @@ const char* ssid = "epgp09";
 const char* password = "123456789";
   
 // SAP HCP specific configuration
-const char* host = "iotmmsp349341trial.hanatrial.ondemand.com";
-String device_id = "e8046d65-fbc1-48a0-a297-6caa53db19b8";
-String message_type_id = "89e2cf65e1ad7f9bd615";
-String oauth_token= "668917c9fdd62cc0f73bde526b8e4b6";
+const char* host = "iotmmsp*****trial.hanatrial.ondemand.com";
+String device_id = "Device ID";
+String message_type_id = "message ID";
+String oauth_token= "o_auth token";
  
 const int httpsPort = 443; //HTTP port
 
@@ -43,7 +43,7 @@ void loop() {
     Serial.println(sensorValue); 
     delay(800);
  
-  String url = "https://iotmmsp349341trial.hanatrial.ondemand.com/com.sap.iotservices.mms/v1/api/http/data/" + device_id;
+  String url = "https://iotmmsp****trial.hanatrial.ondemand.com/com.sap.iotservices.mms/v1/api/http/data/" + device_id;
   String post_payload = "{\"mode\":\"async\", \"messageType\":\"" + message_type_id + "\", \"messages\":[{\"sensorValue\":"+sensorValue+"}]}";
 
   // Use WiFiClientSecure class to create TLS connection
