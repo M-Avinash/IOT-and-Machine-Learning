@@ -11,13 +11,13 @@
 // ========== start configuration ==========
 // WiFi configuration
 const char* ssid = "Manoli";
-const char* password = "acmanoli19521";
+const char* password = "password";
   
 // SAP HCP specific configuration
-const char* host = "iotmmsp349341trial.hanatrial.ondemand.com";
-String device_id = "e8046d65-fbc1-48a0-a297-6caa53db19b8";
-String message_type_id = "89e2cf65e1ad7f9bd615";
-String oauth_token= "668917c9fdd62cc0f73bde526b8e4b6";
+const char* host = "iotmmsp*****.hanatrial.ondemand.com";
+String device_id = "device Id";
+String message_type_id = "message ID";
+String oauth_token= "o_Auth Token";
  
 const int httpsPort = 443; //HTTP port
 
