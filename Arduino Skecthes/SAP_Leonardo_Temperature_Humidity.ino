@@ -15,10 +15,10 @@ const char* ssid = "Manoli";
 const char* password = "password";
   
 // SAP HCP specific configuration
-const char* host = "iotmmsp349341trial.hanatrial.ondemand.com";
-String device_id = "7ffce84f-1c2a-4438-9fcb-0e878b34c077";
-String message_type_id = "3091f47bb387224fbbdb";
-String oauth_token="3ac8f51748eef35195e0ed36d9d797a9";
+const char* host = "iotmmsp****trial.hanatrial.ondemand.com";
+String device_id = "Device ID";
+String message_type_id = "Message ID";
+String oauth_token="O_Auth Token";
  
   
  
