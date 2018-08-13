@@ -52,8 +52,8 @@ client.loop_start()
 
 client.subscribe("commands/162af764537c699b",0)
 time.sleep(5)
-payload = { "capabilityAlternateId": "d34f54bda8d40721", "sensorAlternateId": "918dd8b354dbde8e", "measures": [["22"]] } 
-client.publish("measures/163b8dd6c89384f5", str(payload), 0)
+payload = { "capabilityAlternateId": "ALTERNATEid", "sensorAlternateId": "ALTERNATEid", "measures": [["22"]] } 
+client.publish("measures/ALTERNATEid", str(payload), 0)
 time.sleep(5)
 #client.disconnect()
 
