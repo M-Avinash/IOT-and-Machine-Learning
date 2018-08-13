@@ -31,13 +31,13 @@ print("connecting to broker ",broker)
 client.connect(broker, 15673, 60)#connect
 client.loop_start() #start loop to process received messages
 print("subscribing ")
-client.subscribe("iot/log/iotmmsp349341trial/v1/89be3933-1e9a-4446-974e-ed3b4c9089f4")  #subscribe to log
-client.subscribe("iot/ack/iotmmsp349341trial/v1/89be3933-1e9a-4446-974e-ed3b4c9089f4")  #subscribe to acknowledge
-client.subscribe("iot/push/iotmmsp349341trial/v1/89be3933-1e9a-4446-974e-ed3b4c9089f4") #subscribe to push
+client.subscribe("iot/log/iotmmsp349341trial/v1/ENCRYPTEDid")  #subscribe to log
+client.subscribe("iot/ack/iotmmsp349341trial/v1/ENCRYPTEDid")  #subscribe to acknowledge
+client.subscribe("iot/push/iotmmsp349341trial/v1/ENCRYPTEDid") #subscribe to push
 time.sleep(2)
-payload = {"mode":"sync","messageType":"a7cad099e45f44e997b6","messages":[{"test":"Testing-Avinash"}]} #Define Payload
+payload = {"mode":"sync","messageType":"MessageType","messages":[{"test":"Testing-Avinash"}]} #Define Payload
 print("publishing ")
-client.publish("iot/data/iotmmsp349341trial/v1/89be3933-1e9a-4446-974e-ed3b4c9089f4", str(payload))#Publish 
+client.publish("iot/data/iotmmsp349341trial/v1/ENCRYPTEDid", str(payload))#Publish 
 
 time.sleep(4)
 print("published successfully")
