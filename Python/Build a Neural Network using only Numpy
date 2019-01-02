@@ -1,3 +1,6 @@
+#Program that builds a 1-Hidden layer neural network using only Numpy. Activations funtions used are LeakyRelu and Sigmoid.
+#Error calculation is done using Cross Entropy Log Loss
+
 import numpy as np
 import random
 import time
