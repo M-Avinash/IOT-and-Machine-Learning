@@ -66,5 +66,6 @@ for i in range (15000):
     
     #time.sleep(0.3)
 
-print(output)
+print('The output vector after 15000 iterations is :',str(output))
+print('Compare this with the Target vector :',str(target))
 
