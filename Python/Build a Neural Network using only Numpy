@@ -5,7 +5,6 @@ import numpy as np
 import random
 import time
 
-
 ################################
 def sigmoid(input, deriv=False):
     if deriv == True:
