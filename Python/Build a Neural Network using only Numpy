@@ -1,9 +1,7 @@
-#Program that builds a 1-Hidden layer neural network using only Numpy. Activations funtions used are LeakyRelu and Sigmoid.
-#Error calculation is done using Cross Entropy Log Loss
-
 import numpy as np
 import random
 import time
+
 
 ################################
 def sigmoid(input, deriv=False):
@@ -30,8 +28,12 @@ bias1   = np.random.rand(1,2) #Randomly Initalized bias for input neurons
 weight2 = np.random.rand(2,5) #Randomly Initalized wights for hidden neurons
 bias2   = np.random.rand(1,5) #Randomly Initalized bias for hidden neurons
 
+print('The Input array is: ',str(iarray))
+
 #The target matrix we need is
-target =np.array([[1,0,0,1,1]])
+target =np.array([[.11,.22,.33,.44,.55]])
+
+print('The Target array is: ',str(target))
 
 for i in range (15000):
     
@@ -66,6 +68,5 @@ for i in range (15000):
     
     #time.sleep(0.3)
 
-print('The output vector after 15000 iterations is :',str(output))
-print('Compare this with the Target vector :',str(target))
+print('The output array is: ',str(output))
 
