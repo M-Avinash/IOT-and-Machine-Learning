@@ -59,7 +59,6 @@ for i in range (15000):
     hidden_delta = sigmoid(output_delta, deriv=True)
     
     #derivative of the leakyrelu function on the hidden layer [Hidden --> Input]
-    #leakyrelu(x) = max(0, x)
     input_delta =  np.array(leakyrelu(hidden_delta))
 
     #Update weights with a learning rate of "0.5"
