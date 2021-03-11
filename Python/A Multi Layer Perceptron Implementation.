@@ -1,24 +1,37 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Mar 10 15:30:13 2021
+
+@author: avinash
+"""
+
 import numpy as np
-import random
-import time
+#mport random
+#import time
 
 
 ################################
-def sigmoid(input, deriv=False):
+def leakyrelu(input, deriv = False):
     if deriv == True:
-        return input*(1-input)
-    return 1/(1+np.exp(-input)) 
+        return input * np.where(input>0, input, 0.01)
+    return np.where(input>0,input, input*0.01)
 
-def leakyrelu(input, alpha = 0.01):
-    output = 1. * (input>0)
-    output[output ==0] = alpha
-    return output
 
+def sigmoid(input, deriv=False):
+    output = 1/(1+np.exp(-input)) 
+    if deriv == True:
+        return input * output*(1-output)
+    return output 
+
+   
 def cross_entropy(output, target, deriv = False):
     m=target.shape[0]
+    epsilon = 1e-5   
     if deriv == True:
-        return (np.subtract(output,target))/m
-    return -(1/m)*(np.sum(np.dot(np.log(output),target.T) + np.dot(np.log(1-output),(1-target).T)))
+        #return (np.subtract(output,target))*1/m
+        return (1/m) * (-(target/output) + ((1-target)/(1-output)))
+    return np.squeeze(-(1/m)*(np.sum(np.dot(np.log(output+epsilon),target.T) + np.dot(np.log(1-output+epsilon),(1-target).T))))
 ################################
     
 #Random Initializaion
@@ -31,22 +44,23 @@ bias2   = np.random.rand(1,5) #Randomly Initalized bias for hidden neurons
 print('The Input array is: ',str(iarray))
 
 #The target matrix we need is
-target =np.array([[.11,.22,.33,.44,.55]])
+target =np.array([[.12,.23,.36,.45,.59]])
 
 print('The Target array is: ',str(target))
 
-for i in range (15000):
+for i in range (3000000):
     
     #Begin forward propagation steps    
+    
     #Multiply Input and Weight1 vectors, apply leakyrelu function
     hidden = leakyrelu(np.dot(iarray, weight1) +bias1)
                           
     #Muiltiply Hidden and Weight 2 vectors, apply sigmoid function
-    output = sigmoid(np.dot(hidden,weight2) +bias2, deriv = False)
+    output = sigmoid(np.dot(hidden,weight2) +bias2)
     
     #Calculate the total error using cross entropy log loss
     error = cross_entropy(output, target)
-#   print(' The cross entropy loss or total error is   :', str(error)) <<- Uncomment this line to visualize error reduction at every iteration  
+    print(' The cross entropy loss or total error is   :', str(error)) #<<- Uncomment this line to visualize error reduction at every iteration  
     
     # Implement backward propagation for gradient descent     
     
@@ -59,13 +73,14 @@ for i in range (15000):
     hidden_delta = sigmoid(output_delta, deriv=True)
     
     #derivative of the leakyrelu function on the hidden layer [Hidden --> Input]
-    input_delta =  np.array(leakyrelu(hidden_delta))
+    
+    input_delta =  leakyrelu(hidden_delta, deriv= True)
 
     #Update weights with a learning rate of "0.5"
-    weight2  = (weight2 - 0.9*hidden_delta)
-    weight1  = (weight1 - 0.9*input_delta.T)
+    weight2  -= 0.0008*hidden_delta
+    weight1  -= 0.0008*input_delta.T
     
     #time.sleep(0.3)
 
 print('The output array is: ',str(output))
-
+print('The final error is :',str(error))
